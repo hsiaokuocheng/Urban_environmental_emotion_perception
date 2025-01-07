@@ -1,4 +1,4 @@
-![研究架構diagram](hsiao_pic\research_conceptdrawing.png)
+![研究架構diagram](hsiao_pic/research_conceptdrawing.png)
 
 
 # My Project Frontage
