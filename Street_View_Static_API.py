@@ -38,4 +38,4 @@ def capture_images(input_csv_path, save_dir, api_key):
 capture_images(
     input_csv_path=r"/content/street_view_coordinates.csv",  # 經緯度清單 CSV 檔案
     save_dir=r"/content/street_view_images",  # 儲存目錄
-    api_key="AIzaSyCNrVX_TBPiXffsdfwegwgsgwgdsefjeiix"  # Google Maps API 密鑰
+    api_key="thisisnottherightkpipleaseapplyurown"  # Google Maps API 密鑰

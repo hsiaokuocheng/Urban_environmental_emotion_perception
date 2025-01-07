@@ -21,11 +21,11 @@ This study analyzes the impact of street view color characteristics and physical
 
 ### **Model tutorial**
 
-Plz read the tutorial by order, or you are not going to generate the right data.
-  1. [Google api tutorial](Google_api_tutorial) 
-  2. [K-means Color City Analysis Model](K-means_Color_City_Analysis_Model.md)
-  3. [PSPNet Semantic Analysis Model](PSPNet_Semantic_Analysis_Model.md)
-  4. [MIT Place Pulse Pretrained Model](Google_api_tutorial)
+Please read the tutorial in order, or you are not going to generate the right data. First,following the instructions in Google api tutorial to the basic streetview photos. And then using this photos to ana 
+- [Google api tutorial](Google_api_tutorial)  
+  -  [K-means Color City Analysis Model](K-means_Color_City_Analysis_Model.md)
+  - [PSPNet Semantic Analysis Model](PSPNet_Semantic_Analysis_Model.md)
+  -  [MIT Place Pulse Pretrained Model](Google_api_tutorial)
 
 
 ### **4. Required Programming**

@@ -40,7 +40,7 @@ def save_to_csv(coordinates, output_file):
         writer.writerows(coordinates)
 
 # 示例：定義島嶼區域範圍
-api_key = "AIzaSyCNrVX_TBPiXhCoxbrARO0wUmB1GdkKmZ8"  # 替換為你的 Google Maps API 密鑰
+api_key = "thisisnottherightkpipleaseapplyurown"  # 替換為你的 Google Maps API 密鑰
 sw_corner = (23.472826, 120.438244)  # 西南角經緯度
 ne_corner = (23.487572, 120.460219)  # 東北角經緯度
 
