@@ -1,0 +1,117 @@
+
+
+
+
+### why using Google api key?
+- **Main Image Sources**: Google Street View 
+
+    The research framework initially uses the Google Street View API to acquire street view images based on multiple latitude and longitude points as research data.
+
+    - Figure 1, shows the location of all latitude and longitude points available for street view images in Matsu. For each point, six photos were captured simulating different head rotation angles, and these six photos were used as a single analysis sample. Subsequent analyses were conducted on a per-point basis. 
+    - Figure 2 is a schematic representation of all point samples. However, this method has some discrepancies due to uneven street view image distribution in remote island areas. In contrast, the sampling standards are more reliable in Chiayi City. Another consideration is whether data collection should be based on streets or matrix grids, particularly when analyzing undeveloped land.
+
+![API Example 1](hsiao_pic\api_example_1.png)
+![API Example 2](hsiao_pic\api_example_2.png)
+
+---
+### How to Use the Script: [Street_view_Metadata_API](Street_View_Metadata_API.py) as example 
+
+This guide will walk you through the steps to use the Python script for generating Street View coordinates and saving them to a CSV file. Further import this csv file to  [Street_View_Static_API.py](Street_View_Static_API.py), and collecting street viewphotos.
+
+
+#### Step 1: Install Required Python Packages
+
+Make sure Python (3.x or higher) is installed on your system. Then, install the required Python libraries:
+
+```bash
+pip install requests numpy
+```
+#### Step 2: Update Script Parameters
+Open the [Street_view_Metadata_API_script](Street_View_Metadata_API.py) and update the following variables to match your requirements:
+```python
+api_key = "YOUR_GOOGLE_API_KEY"  # Replace with your Google Maps API Key
+sw_corner = (23.472826, 120.438244)  # Replace with the southwest corner latitude and longitude
+ne_corner = (23.487572, 120.460219)  # Replace with the northeast corner latitude and longitude
+num_points = 200  # Number of coordinates to generate
+output_file = "street_view_coordinates.csv"  # Output CSV file path
+```
+#### Step 3: run the script
+Save the script as Street_View_Metadata_API.py. Run the script using the following command:
+```bash
+ python Street_View_Metadata_API.py
+```
+#### Step 4: output
+The script will generate a CSV file (street_view_coordinates.csv) containing a list of latitude and longitude coordinates with available Street View data. You can open this file in a text editor, spreadsheet application, or use it for further analysis.
+
+
+
+
+
+----
+
+
+
+### How to Apply for a Google Maps API Key
+
+If u don't have a Google Maps API KEY, follow these steps to apply for a Google Maps API Key. This guide is suitable for first-time users.
+
+
+#### 1. Go to Google Cloud Console
+- Open the [Google Cloud Console](https://console.cloud.google.com/).
+- Log in with your Google account if you haven't already.
+
+#### 2. Create a New Project
+1. Click **"Select a project"** at the top right corner.
+2. Click the **"New Project"** button.
+3. Fill in the following information:
+   - **Project Name**: Enter a name for your project (e.g., `Street View API Project`).
+   - **Organization**: You can leave this blank if you don’t have an organization set up.
+4. Click **"Create"**.
+
+#### 3. Enable Google Maps APIs
+1. In the left-hand menu of the Google Cloud Console, go to **"APIs & Services" > "Library"**.
+2. Use the search bar to find the required APIs (e.g., **Street View API** or **Maps JavaScript API**).
+3. Click the desired API, then click the **"Enable"** button.
+4. Repeat this step for the following APIs:
+   - **Street View Static API**
+   - **Street View Metadata API**
+   - **Maps JavaScript API** (if advanced features are needed)
+
+#### 4. Create an API Key
+1. In the left-hand menu, go to **"APIs & Services" > "Credentials"**.
+2. Click **"Create Credentials"**, then select **"API Key"**.
+3. A new API key will be generated. Copy and save it securely.
+4. **Optional**: Click the **"Edit"** icon next to your API key and set restrictions for better security:
+   - **Application restrictions**:
+     - Select **"HTTP referrers (websites)"** and specify the allowed domains.
+   - **API restrictions**:
+     - Select **"Restrict key"** and choose the APIs you enabled (e.g., **Street View Static API** and **Street View Metadata API**).
+
+
+#### 5. Test Your API Key
+1. Use your API key to test the API functionality:
+   - Test **Street View Static API**:
+     ```bash
+     https://maps.googleapis.com/maps/api/streetview?size=400x400&location=23.472826,120.438244&key=YOUR_API_KEY
+     ```
+   - Test **Street View Metadata API**:
+     ```bash
+     https://maps.googleapis.com/maps/api/streetview/metadata?location=23.472826,120.438244&key=YOUR_API_KEY
+     ```
+2. Ensure the responses are correct to verify your key works as expected.
+
+
+#### 6. Set Up Billing Account
+1. In the Google Cloud Console, go to **"Billing"** in the left-hand menu.
+2. Select your project and link it to a billing account.
+   - If you don’t have a billing account, click **"Add Billing Account"** and provide the following information:
+     - **Payment Method**: Link a credit card or another payment method.
+     - **Address**: Enter your valid residential address.
+3. Google Cloud offers **$200 free monthly usage credits**, which is sufficient for most testing scenarios.
+
+
+#### 7. Use the API Key
+- In your code, replace `"YOUR_API_KEY"` with the key you generated, for example:
+  ```python
+  api_key = "YOUR_API_KEY"
+
